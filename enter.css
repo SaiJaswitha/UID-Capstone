@@ -1,15 +1,10 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 body {
+    margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
     background:
         linear-gradient(rgba(85, 168, 203, 0.03) 1px, transparent 1px) 0 0 / 40px 40px,
         linear-gradient(90deg, rgba(55, 171, 220, 0.03) 1px, transparent 1px) 0 0 / 40px 40px,
@@ -17,158 +12,109 @@ body {
         url('https://images.unsplash.com/photo-1508971344143-1b9cbbf0e7c8?w=1920&q=80') center/cover no-repeat fixed;
 }
 .form-box {
-    background: rgba(15, 20, 28, 0.80);
+    background: rgba(15, 20, 28, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(6, 182, 212, 0.18);
-    padding: 36px 32px;
-    border-radius: 22px;
-    width: 100%;
-    max-width: 400px;
+    border: 1px solid rgba(6,182,212,0.15);
+    padding: 40px;
+    border-radius: 20px;
+    width: 350px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
     color: white;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
-.tabs {
-    display: flex;
+.tabs{
+    display:flex;
+    margin-bottom:20px;
     gap: 8px;
-    margin-bottom: 24px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 25px;
-    padding: 4px;
 }
-.tab {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    background: transparent;
-    color: rgba(255,255,255,0.5);
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.25s ease;
+.tab{
+    flex:1;
+    padding:10px;
+    border:none;
+    cursor:pointer;
+    background:#2a2a2a;
+    color:#090202;
+    border-radius:20px;
 }
-.tab.active {
-    background: #06b6d4;
-    color: black;
-    font-weight: 600;
+.tab.active{
+    background:#06b6d4;
+    color:black;
 }
-.form-box h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: white;
+input{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:10px;
+    border:1px solid #333;
+    background:#121212;
+    color:white;
+    box-sizing: border-box;
 }
-.form-box > div > p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 18px;
-    line-height: 1.5;
+.row{
+    display:flex;
+    gap:10px;
+    margin: 0; 
 }
-input {
-    width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 4px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(0,0,0,0.4);
-    color: white;
-    font-size: 14px;
-    outline: none;
-    transition: border 0.2s ease;
-    display: block;
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:25px;
+    background:#06b6d4;
+    color:black;
+    cursor:pointer;
+    transition:0.3s;
 }
-input::placeholder {
-    color: rgba(255,255,255,0.3);
+button:hover{
+    background:#06b6d4;
 }
-input:focus {
-    border-color: rgba(6, 182, 212, 0.6);
-    background: rgba(0,0,0,0.55);
+small{
+    color:red;
+    font-size:12px;
+    display:block;
+    margin-top: 2px;
 }
-.row {
-    display: flex;
-    gap: 10px;
-    width: 100%;
+.switch-text{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+    color:#aaa;
 }
-.row input {
-    flex: 1;
-    min-width: 0;
+.switch-text span{
+    color:#06b6d4;
+    font-weight:600;
+    cursor:pointer;
 }
-small {
-    color: #ff4d4d;
-    font-size: 12px;
-    display: block;
-    min-height: 16px;
-    margin-bottom: 4px;
-    padding-left: 2px;
-}
-button {
-    width: 100%;
-    padding: 13px;
-    margin-top: 14px;
-    border: none;
-    border-radius: 25px;
-    background: #06b6d4;
-    color: black;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
-}
-button:active {
-    transform: scale(0.98);
-}
-.switch-text {
-    text-align: center;
-    margin-top: 18px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-}
-.switch-text span {
-    color: #06b6d4;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-}
-.switch-text span:hover {
-    text-decoration: underline;
+.switch-text span:hover{
+    text-decoration:underline;
 }
 @media (max-width: 500px) {
-    body {
-        padding: 16px;
-        align-items: center;
-    } 
     .form-box {
-        padding: 28px 20px;
-        border-radius: 18px;
+        width: 85%;
+        max-width: 350px;
+        padding: 24px 20px;
+        margin: 0 auto; 
     }
-    .form-box h2 {
-        font-size: 20px;
-    }
-    .tab {
-        font-size: 13px;
-        padding: 9px 6px;
-    }
-    .row {
-        flex-direction: row;
-        gap: 8px;
-    }
-    input {
-        font-size: 14px;
-        padding: 11px 12px;
-    }
-    button {
-        padding: 12px;
-        font-size: 14px;
-    }
-}
-@media (max-width: 350px) {
     .row {
         flex-direction: column;
         gap: 0;
+    }
+    .row input {
+        width: 100%;
+        margin: 8px 0;
+    }
+    .tabs {
+        flex-direction: row;
+        gap: 8px;
+        justify-content: center;
+    }
+    .tab {
+        font-size: 13px;
+        padding: 8px 6px;
+        flex: 1;
+        min-width: 0;
     }
 }
