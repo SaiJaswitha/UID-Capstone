@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -90,22 +93,34 @@ small{
     display:block;
     margin-bottom:5px;
 }
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #121212;
+    color: white;
+    display: block;
+}
 @media (max-width: 500px) {
     .form-box {
         width: 85%;
         padding: 24px 20px;
     }
     .row {
-        flex-direction: column;
-        gap: 0;
+        display: flex;
+        gap: 10px;
     }
     .row input {
-        width: 100%;
+        flex: 1;
     }
     .tabs {
         flex-direction: row;
         gap: 8px;
     }
+    input {
+        margin: 10px 0;
     .tab {
         font-size: 13px;
         padding: 8px 6px;
