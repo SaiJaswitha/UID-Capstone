@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        linear-gradient(rgba(85, 168, 203, 0.03) 1px, transparent 1px) 0 0 / 40px 40px,
+        linear-gradient(90deg, rgba(55, 171, 220, 0.03) 1px, transparent 1px) 0 0 / 40px 40px,
+        linear-gradient(rgba(10, 100, 211, 0.78), rgba(18, 19, 19, 0.92)),
+        url('https://images.unsplash.com/photo-1508971344143-1b9cbbf0e7c8?w=1920&q=80') center/cover no-repeat fixed;
+}
+.form-box {
+    background: rgba(15, 20, 28, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(6,182,212,0.15);
+    padding: 40px;
+    border-radius: 20px;
+    width: 350px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+    color: white;
+}
+.tabs{
+    display:flex;
+    margin-bottom:20px;
+}
+.tab{
+    flex:1;
+    padding:10px;
+    border:none;
+    cursor:pointer;
+    background:#2a2a2a;
+    color:#090202;
+    border-radius:20px;
+}
+.tab.active{
+    background:#06b6d4;
+    color:black;
+}
+input{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:10px;
+    border:1px solid #333;
+    background:#121212;
+    color:white;
+}
+.row{
+    display:flex;
+    gap:10px;
+}
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:25px;
+    background:#06b6d4;
+    color:black;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{
+    background:#06b6d4;
+}
+small{
+    color:red;
+    font-size:12px;
+}
+.switch-text{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+    color:#aaa;
+}
+.switch-text span{
+    color:#06b6d4;
+    font-weight:600;
+    cursor:pointer;
+}
+.switch-text span:hover{
+    text-decoration:underline;
+}
+small{
+    color:#ff4d4d;
+    font-size:12px;
+    display:block;
+    margin-bottom:5px;
+}
+@media (max-width: 500px) {
+    .form-box {
+        width: 85%;
+        padding: 24px 20px;
+    }
+    .row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .row input {
+        width: 100%;
+    }
+    .tabs {
+        flex-direction: row;
+        gap: 8px;
+    }
+    .tab {
+        font-size: 13px;
+        padding: 8px 6px;
+    }
+}

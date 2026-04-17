@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Telugu Beats</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<div class="container">
+<div class="header">
+    <div class="left">
+        <div class="logo">🎧</div>
+        <div class="brand">Telugu<span>Beats</span></div>
+    </div>
+    <div class="search-wrap">
+    <input class="search" placeholder="Search Telugu songs..." autocomplete="off">
+    <div id="searchResults" class="search-results"></div>
+</div>
+    <div class="right">
+        <div class="icon" onclick="goHome()">🏠</div>
+        <div class="icon">🔊</div>
+        <div class="profile">
+    <div class="avatar" id="avatar">U</div>
+    <div id="username">User</div>
+</div>
+        <div class="profile-menu" id="profileMenu">
+            <p onclick="showProfile()">👤 Profile</p>
+            <p onclick="window.location.href='favorites.html'">❤️ Favorites</p>
+            <p onclick="showQueryForm()">📩 Send Query</p>
+            <p onclick="logout()">🚪 Logout</p>
+        </div>
+<div class="profile-card" id="profileCard">
+    <div class="pc-avatar" id="pcAvatar">U</div>
+    <h3 id="pcName">User</h3>
+    <p id="pcEmail">user@telugubeats.com</p>
+    <button class="close-card" onclick="closeProfile()">✕ Close</button>
+</div>
+</div>
+</div>
+<div class="hero">
+    <h1>🎵 Welcome back, <span id="welcomeName">User</span></h1>
+    <p>What are you vibing to today?</p>
+</div>
+<div class="hero-slider">
+    <button id="prevBtn" onclick="prevSlide()" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); z-index:20; width:38px; height:38px; border-radius:50%; border:2px solid rgba(255,255,255,0.3); background:rgba(0,0,0,0.55); color:white; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center;">❮</button>
+    <button id="nextBtn" onclick="nextSlide()" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); z-index:20; width:38px; height:38px; border-radius:50%; border:2px solid rgba(255,255,255,0.3); background:rgba(0,0,0,0.55); color:white; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center;">❯</button>
+    <div class="slides" id="slides">
+        <div class="slide" onclick="openSlider('trending')">
+            <div class="slide-content">
+                <h1>🔥 Trending Songs</h1>
+                <p>Top Telugu hits</p>
+            </div>
+        </div>
+        <div class="slide" onclick="openSlider('pearls')">
+            <div class="slide-content">
+                <h1>💎 Tollywood Pearls</h1>
+                <p>Classic cinema music</p>
+            </div>
+        </div>
+        <div class="slide" onclick="openSlider('hits')">
+            <div class="slide-content">
+                <h1>⭐ All Time Hits</h1>
+                <p>Evergreen songs</p>
+            </div>
+        </div>
+        <div class="slide" onclick="openSlider('happy')">
+            <div class="slide-content">
+                <h1>😊 Happy Vibes</h1>
+                <p>Feel good songs</p>
+            </div>
+        </div>
+        <div class="slide" onclick="openSlider('party')">
+            <div class="slide-content">
+                <h1>🎉 Party Time</h1>
+                <p>Dance beats</p>
+            </div>
+        </div>
+    </div>
+    <div class="dots">
+        <span onclick="goSlide(0)"></span>
+        <span onclick="goSlide(1)"></span>
+        <span onclick="goSlide(2)"></span>
+        <span onclick="goSlide(3)"></span>
+        <span onclick="goSlide(4)"></span>
+    </div>
+</div>
+<!-- Recently Played Section -->
+<!-- NEW -->
+<div class="recent-section" id="recentSection" style="display:none;">
+    <div class="recent-header">
+        <h2>🕐 Recently Played</h2>
+        <div class="recent-nav-btns">
+            <button class="recent-nav-btn" onclick="scrollRecent(-1)">❮</button>
+            <button class="recent-nav-btn" onclick="scrollRecent(1)">❯</button>
+        </div>
+    </div>
+    <div class="recent-cards" id="recentCards"></div>
+</div>
+<div class="era-section">
+    <h2 class="era-title">Browse by Era 🎵</h2>
+    <div class="era-cards">
+
+        <div class="era-card era-2020" onclick="openCategory('y2020')">
+            <div class="era-glow"></div>
+            <div class="era-emoji">🔥</div>
+            <div class="era-info">
+                <span class="era-year">2020s</span>
+                <span class="era-label">Hits</span>
+            </div>
+            <div ></div>
+            <div ></div>                    
+        </div>
+
+        <div class="era-card era-2010" onclick="openCategory('y2010')">
+            <div class="era-glow"></div>
+            <div class="era-emoji">💿</div>
+            <div class="era-info">
+                <span class="era-year">2010s</span>
+                <span class="era-label">Classics</span>
+            </div>
+            <div ></div>
+            <div ></div>
+        </div>
+
+        <div class="era-card era-2000" onclick="openCategory('y2000')">
+            <div class="era-glow"></div>
+            <div class="era-emoji">📼</div>
+            <div class="era-info">
+                <span class="era-year">2000s</span>
+                <span class="era-label">Gold</span>
+            </div>
+            <div ></div>
+            <div ></div>
+        </div>
+
+        <div class="era-card era-1990" onclick="openCategory('y1990')">
+            <div class="era-glow"></div>
+            <div class="era-emoji">🎙️</div>
+            <div class="era-info">
+                <span class="era-year">90s</span>
+                <span class="era-label">Evergreen</span>
+            </div>
+            <div ></div>
+            <div ></div>
+        </div>
+
+    </div>
+</div>
+<h2 id="categoryTitle" style="padding:10px 40px;"></h2>
+<div id="songList" style="padding:20px 40px;"></div>
+<div class="bottom-player">
+    <div class="player-left" onclick="openNowPlaying()" style="cursor:pointer;">
+    <img id="playerImg" src="images/default.png">
+        <div class="player-text">
+            <p id="currentSong">No song</p>
+            <small id="status"></small>
+        </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+        <div class="player-controls">
+            <button id="shuffleBtn" onclick="toggleShuffle()" title="Shuffle: OFF">⇄</button>
+            <button onclick="prev()">⏮</button>
+            <button id="mainPlayBtn" onclick="togglePlay()">▶</button>
+            <button onclick="next()">⏭</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;width:100%;max-width:400px;">
+            <span id="currentTime" style="font-size:12px;color:#aaa;min-width:35px;">0:00</span>
+            <input type="range" id="progressBar" min="0" max="100" value="0"
+                oninput="seekSong(this.value)"
+                style="flex:1;accent-color:#06b6d4;cursor:pointer;height:4px;">
+            <span id="totalTime" style="font-size:12px;color:#aaa;min-width:35px;">0:00</span>
+        </div>
+    </div>
+    <div class="player-right-controls">
+        <button id="playerFavBtn" onclick="togglePlayerFav()" style="background:transparent;border:none;font-size:22px;cursor:pointer;padding:0;">🤍</button>
+        <div class="volume-control">
+            <span>🔊</span>
+            <input type="range" id="volumeSlider" min="0" max="100" value="80"
+                oninput="setVolume(this.value)"
+                style="width:80px;accent-color:#06b6d4;cursor:pointer;height:4px;">
+        </div>
+    </div>
+</div>
+
+<!-- Song Info Popup -->
+<div id="songInfoBox" style="
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(15,20,28,0.97);
+    border:1px solid rgba(6,182,212,0.4);
+    border-radius:18px;
+    padding:28px 32px;
+    z-index:9999;
+    min-width:280px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.7);
+    text-align:center;
+">
+    <img id="infoImg" src="" style="width:90px;height:90px;border-radius:14px;object-fit:cover;margin-bottom:14px;">
+    <h3 id="infoName" style="margin:0 0 8px;font-size:18px;color:#06b6d4;"></h3>
+    <p id="infoMovie" style="margin:4px 0;font-size:14px;color:#ccc;">🎬 <span></span></p>
+    <p id="infoSinger" style="margin:4px 0;font-size:14px;color:#ccc;">🎤 <span></span></p>
+    <button onclick="closeSongInfo()" style="
+        margin-top:16px;
+        padding:8px 24px;
+        border-radius:20px;
+        border:none;
+        background:#06b6d4;
+        color:black;
+        cursor:pointer;
+        font-size:14px;
+    ">Close</button>
+</div>
+<div id="infoOverlay" onclick="closeSongInfo()" style="
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9998;
+"></div>
+<!-- Query Form Popup -->
+<div id="queryBox">
+    <h3 style="margin:0 0 6px;color:#06b6d4;">📩 Send a Query</h3>
+    <p style="font-size:13px;color:#aaa;margin:0 0 16px;">We'll get back to you soon!</p>
+
+    <input id="queryName" placeholder="Your Name" style="
+        width:100%;padding:10px;margin-bottom:10px;
+        border-radius:10px;border:1px solid #333;
+        background:#121212;color:white;box-sizing:border-box;
+    ">
+    <small id="queryNameErr" style="color:#ff4d4d;font-size:12px;display:block;margin-bottom:6px;"></small>
+
+    <input id="queryEmail" placeholder="Your Email" style="
+        width:100%;padding:10px;margin-bottom:10px;
+        border-radius:10px;border:1px solid #333;
+        background:#121212;color:white;box-sizing:border-box;
+    ">
+    <small id="queryEmailErr" style="color:#ff4d4d;font-size:12px;display:block;margin-bottom:6px;"></small>
+
+    <textarea id="queryMsg" placeholder="Write your query..." rows="4" style="
+        width:100%;padding:10px;
+        border-radius:10px;border:1px solid #333;
+        background:#121212;color:white;
+        resize:none;box-sizing:border-box;
+    "></textarea>
+    <small id="queryMsgErr" style="color:#ff4d4d;font-size:12px;display:block;margin-bottom:10px;"></small>
+
+    <div style="display:flex;gap:10px;margin-top:6px;">
+        <button onclick="submitQuery()" style="
+            flex:1;padding:10px;border:none;
+            border-radius:20px;background:#06b6d4;
+            color:black;cursor:pointer;font-size:14px;
+        ">Send</button>
+        <button onclick="closeQuery()" style="
+            flex:1;padding:10px;border:none;
+            border-radius:20px;background:#1f2937;
+            color:white;cursor:pointer;font-size:14px;
+        ">Cancel</button>
+    </div>
+    <div id="querySuccess">✅ Query sent successfully!</div>
+</div>
+<div id="queryOverlay" onclick="closeQuery()"></div>
+<!-- ── Now Playing Card ── -->
+<div id="nowPlayingCard" class="np-card">
+    <div class="np-overlay" onclick="closeNowPlaying()"></div>
+    <div class="np-panel">
+        <div class="np-handle"></div>
+        <button class="np-close-btn" onclick="closeNowPlaying()">✕</button>
+        <div class="np-img-wrap">
+            <img id="npImg" src="images/default.png" onerror="this.src='images/default.png'">
+        </div>
+        <div class="np-info-row">
+            <div class="np-info-text">
+                <h3 id="npSongName">No song</h3>
+                <p id="npMovie"></p>
+                <p id="npSinger"></p>
+            </div>
+            <button id="npFavBtn" onclick="togglePlayerFav(); updateNowPlayingUI()">🤍</button>
+        </div>
+        <div class="np-progress-wrap">
+            <input type="range" id="npProgressBar" min="0" max="100" value="0"
+                oninput="seekSong(this.value)">
+            <div class="np-time-row">
+                <span id="npCurrentTime">0:00</span>
+                <span id="npTotalTime">0:00</span>
+            </div>
+        </div>
+        <div class="np-controls">
+            <button id="npShuffleBtn" onclick="toggleShuffle(); updateNowPlayingUI()" title="Shuffle">⇄</button>
+            <button onclick="prev()">⏮</button>
+            <button id="npPlayBtn" onclick="togglePlay()">▶</button>
+            <button onclick="next()">⏭</button>
+        </div>
+        <div class="np-volume-row">
+            <span>🔈</span>
+            <input type="range" id="npVolumeSlider" min="0" max="100" value="80"
+                oninput="setVolume(this.value)">
+            <span>🔊</span>
+        </div>
+    </div>
+</div>
+<audio id="audio"></audio>
+<script src="player-state.js"></script>
+<script src="songs.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

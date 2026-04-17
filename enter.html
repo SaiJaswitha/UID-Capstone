@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+<title>Telugu Beats</title>
+<link rel="stylesheet" href="enter.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="form-box">
+        <div class="tabs">
+            <button class="tab active" id="loginTab" onclick="showLogin()" style="margin-right: 15px;">Sign In</button>
+            <button class="tab" id="registerTab" onclick="showRegister()">Create Account</button>
+        </div>
+        <div id="loginPage">
+            <h2>Welcome Back 👋</h2>
+            <p>Sign in to continue listening to your favorite songs</p>
+
+            <input type="email" id="loginEmail" placeholder="Email">
+            <small id="loginEmailErr"></small>
+
+            <input type="password" id="loginPass" placeholder="Password">
+            <small id="loginPassErr"></small>
+
+            <button onclick="login()">Sign In</button>
+            <p class="switch-text">
+            Don't have an account? 
+            <span onclick="showRegister()">Create Account</span>
+            </p>
+        </div>
+        <div id="registerPage" style="display:none;">
+            <h2>Start your journey 🎧</h2>
+            <p>Create a free account and discover your next favorite song</p>
+            <div class="row">
+                <input type="text" id="fname" placeholder="First Name">
+                <input type="text" id="lname" placeholder="Last Name">
+            </div>
+            <small id="nameErr"></small>
+            <input type="email" id="email" placeholder="you@example.com">
+            <small id="emailErr"></small>
+            <input type="password" id="pass" placeholder="Create password (min 6 characters)">
+            <small id="passErr"></small>
+            <input type="password" id="pass2" placeholder="Confirm password">
+            <small id="pass2Err"></small>
+            <button onclick="register()">Create Account</button>
+            <p class="switch-text">
+            Already have an account? 
+            <span onclick="showLogin()">Sign In</span>
+            </p>
+        </div>
+    </div>
+</div>
+<script src="enter.js"></script>
+</body>
+</html>
